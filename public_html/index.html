@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title><<EverHack>></title>
+        
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="js/external_resources/pixi.js"></script>
+        <script src="js/external_resources/socket.io.js"></script>
+
+        
+        <script src="js/Client/keyboardEvents.js"></script>
+        <script src="js/Client/Utils.js"></script>
+        <script src="js/Client/Zone.js"></script>
+        <script src="js/Client/Mobs.js"></script>
+        <script src="js/Client/Character.js"></script>
+        <script src="js/Client/Abilities.js"></script>
+        <script src="js/Client/UI/displayUI.js"></script>
+        <script src="js/Client/UI/UISettings.js"></script>
+        <script src="js/Client/UI/UIUtils.js"></script>
+        <script src="js/Client/UI/mediaSettings.js"></script>
+        <script src="js/Client/UI/soundEffects.js"></script>
+        <script src="js/Client/UI/combatEffects.js"></script>
+        <script src="js/Client/UI/playerChracterInfoBox.js"></script>
+        <script src="js/Client/UI/playerActionBars.js"></script>
+        <script src="js/Client/playerAbilities.js"></script>
+        <script src="js/Client/UI/ChatBox/chatWindow.js"></script>
+        <script src="js/Client/UI/mobListWindow.js"></script>
+        <script src="js/Client/UI/mobView.js"></script>
+        <script src="js/Client/UI/CharacterUI.js"></script>
+        <script src="js/Client/Combat.js"></script>
+        <script src="js/Client/AI/CombatAI/mobAttacking.js"></script>
+        <script src="js/Client/AI/CombatAI/mobMeleeAttacks.js"></script>
+        <script src="js/Client/AI/CombatAI/mobActionSelection.js"></script>
+        <script src="js/Client/AI/CombatAI/mobTargetSelection.js"></script>
+        <script src="js/Client/combatSettings.js"></script>
+        <script src="js/Client/Abilities/Player/MeleeAttacks.js"></script>
+        <script src="js/Client/Abilities/Player/DefensiveAbilities.js"></script>
+        <script src="js/Client/dataAccess.js"></script>
+        <script src="js/Client/dataLoader.js"></script>
+        <script src="js/Client/assetLoader.js"></script>
+        <script src="js/Client/objectGenerator.js"></script>
+
+        <style>
+             #ChatContainer {
+                //width:500px;
+               // height:330px;
+                display: inline;
+                margin: 0 1em 0 1em;
+                z-index: 99;
+             }
+
+            #ChatBox{
+                position:relative;
+                top:650px;
+                left:1420px;
+                z-index: 99;
+                border:1px #f8f7f3 solid;
+                width:500px;
+                height:300px;
+                cursor:move;
+                background:rgba(0,50,0,0.1);
+                overflow: auto;
+                overflow-y: auto;
+                overflow-x: none;
+                float: left;
+                
+            }
+            
+            #gameMainCanvas{
+                position:absolute;
+                z-index: 0;  
+                float:top;
+            }
+            
+            #ChatInput{
+                position:relative;
+                z-index: 99;  
+                width:500px;
+                height:30px;
+                top:650px;
+                left:1420px;
+            }
+
+            #InputText{
+                width:500px;
+                border:1px #f8f7f3 solid;
+                background-color: transparent;
+                color: #f8f7f3;
+            }
+            
+
+        </style>
+        
+    </head>
+    <body>
+        
+
+        <div id="ChatContainer">
+            <div id="ChatBox"> </div> 
+            
+            <div id="ChatInput"><input type="text" id="InputText" class="inputText"/>
+            </div>
+           
+        </div>
+
+        <canvas id="gameMainCanvas" ></canvas> 
+
+
+      
+        
+        
+        
+        <script type="text/javascript">   
+        
+        //Utility variables
+        var resourceMap       = new Array();
+
+
+    
+        //******************************************//
+        ////******************************************//
+        ////******************************************//
+        //TEMPORARY SETTINGS FOR TESTING
+
+        var playerID = 1;
+        var characterID = 1;
+        var currentZoneID  = 2;
+ 
+        
+        ////******************************************//
+        ////******************************************//
+    
+        // create an new instance of a pixi stage
+	var stage = new PIXI.Stage(0x66FF99);
+  
+	// create a renderer instance
+	var renderer = new PIXI.autoDetectRenderer(windowWidth, windowHeight, {view:document.getElementById("gameMainCanvas")});//autoDetectRenderer(400, 300);
+
+	// add the renderer view element to the DOM
+	document.body.appendChild(renderer.view);
+    
+        //this makes the game fit perfectly into window without offset
+	renderer.view.style.position = "absolute";
+	renderer.view.style.top = "0px";
+	renderer.view.style.left = "0px";
+
+	requestAnimFrame( animate );
+
+        
+        initDataLoad();
+        initAssetLoad();
+     
+        
+        
+        function animate() {
+
+	   requestAnimFrame( animate );
+
+	   // render the stage
+	   renderer.render(stage);
+       
+	}
+        
+        </script>
+     
+    </body>
+</html>
