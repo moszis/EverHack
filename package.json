@@ -1,0 +1,27 @@
+{
+  "name": "everhack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "restify": "^6.3.4",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moszis/EverHack.git"
+  },
+  "author": "Moszis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moszis/EverHack/issues"
+  },
+  "homepage": "https://github.com/moszis/EverHack#readme"
+}

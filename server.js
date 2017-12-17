@@ -6,24 +6,28 @@ var http      = require('http');
 var mysql     = require('mysql');
 var express   = require('express');
 var socketIO  = require('socket.io');
-var fs        = require('fs');
-
-//custom app includes
-var mysqlPool = require('mysqlPool').pool;
-
-//var index = fs.readFileSync(__dirname + '/nodejsTest.html');
+var path      = require('path');
 
 
+var mysqlPool = require('./server/mysqlPool').pool;
 
-var app = http.createServer(function (req, res) {  
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(index);
+var app = express();
+app.set('port', 8124);
+app.use('/client', express.static(__dirname + '/public_html'));
+app.use('/assets', express.static(__dirname + '/public_html/assets'));
+
+var server = http.Server(app);
+
+app.get('/', function(request, response) {
+    response.sendFile(path.join(__dirname, '/public_html/index.html'));
 });
 
-var io = require('socket.io').listen(app);
 
+var io = socketIO(server);
 
-console.log('Server running at http://127.0.0.1:8124/');
+server.listen(8124, function() {
+    console.log('Server running at http://127.0.0.1:8124/');
+});
 
 
 // Emit welcome message on connection
@@ -84,8 +88,6 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
-    
-app.listen(8124);
 
 
 //*******************************SERVICE FUNCTIONS***************************//

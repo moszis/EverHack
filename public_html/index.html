@@ -1,55 +1,48 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title><<EverHack>></title>
+
+        <title>EverHack</title>
         
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-        <script src="js/external_resources/pixi.js"></script>
-        <script src="js/external_resources/socket.io.js"></script>
 
-        
-        <script src="js/Client/keyboardEvents.js"></script>
-        <script src="js/Client/Utils.js"></script>
-        <script src="js/Client/Zone.js"></script>
-        <script src="js/Client/Mobs.js"></script>
-        <script src="js/Client/Character.js"></script>
-        <script src="js/Client/Abilities.js"></script>
-        <script src="js/Client/UI/displayUI.js"></script>
-        <script src="js/Client/UI/UISettings.js"></script>
-        <script src="js/Client/UI/UIUtils.js"></script>
-        <script src="js/Client/UI/mediaSettings.js"></script>
-        <script src="js/Client/UI/soundEffects.js"></script>
-        <script src="js/Client/UI/combatEffects.js"></script>
-        <script src="js/Client/UI/playerChracterInfoBox.js"></script>
-        <script src="js/Client/UI/playerActionBars.js"></script>
-        <script src="js/Client/playerAbilities.js"></script>
-        <script src="js/Client/UI/ChatBox/chatWindow.js"></script>
-        <script src="js/Client/UI/mobListWindow.js"></script>
-        <script src="js/Client/UI/mobView.js"></script>
-        <script src="js/Client/UI/CharacterUI.js"></script>
-        <script src="js/Client/Combat.js"></script>
-        <script src="js/Client/AI/CombatAI/mobAttacking.js"></script>
-        <script src="js/Client/AI/CombatAI/mobMeleeAttacks.js"></script>
-        <script src="js/Client/AI/CombatAI/mobActionSelection.js"></script>
-        <script src="js/Client/AI/CombatAI/mobTargetSelection.js"></script>
-        <script src="js/Client/combatSettings.js"></script>
-        <script src="js/Client/Abilities/Player/MeleeAttacks.js"></script>
-        <script src="js/Client/Abilities/Player/DefensiveAbilities.js"></script>
-        <script src="js/Client/dataAccess.js"></script>
-        <script src="js/Client/dataLoader.js"></script>
-        <script src="js/Client/assetLoader.js"></script>
-        <script src="js/Client/objectGenerator.js"></script>
+        <script src="client/js/external_resources/pixi.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+   
+        <script src="client/js/Client/keyboardEvents.js"></script>
+        <script src="client/js/Client/Utils.js"></script>
+        <script src="client/js/Client/Zone.js"></script>
+        <script src="client/js/Client/Mobs.js"></script>
+        <script src="client/js/Client/Character.js"></script>
+        <script src="client/js/Client/Abilities.js"></script>
+        <script src="client/js/Client/UI/displayUI.js"></script>
+        <script src="client/js/Client/UI/UISettings.js"></script>
+        <script src="client/js/Client/UI/UIUtils.js"></script>
+        <script src="client/js/Client/UI/mediaSettings.js"></script>
+        <script src="client/js/Client/UI/soundEffects.js"></script>
+        <script src="client/js/Client/UI/combatEffects.js"></script>
+        <script src="client/js/Client/UI/playerChracterInfoBox.js"></script>
+        <script src="client/js/Client/UI/playerActionBars.js"></script>
+        <script src="client/js/Client/playerAbilities.js"></script>
+        <script src="client/js/Client/UI/ChatBox/chatWindow.js"></script>
+        <script src="client/js/Client/UI/mobListWindow.js"></script>
+        <script src="client/js/Client/UI/mobView.js"></script>
+        <script src="client/js/Client/UI/CharacterUI.js"></script>
+        <script src="client/js/Client/Combat.js"></script>
+        <script src="client/js/Client/AI/CombatAI/mobAttacking.js"></script>
+        <script src="client/js/Client/AI/CombatAI/mobMeleeAttacks.js"></script>
+        <script src="client/js/Client/AI/CombatAI/mobActionSelection.js"></script>
+        <script src="client/js/Client/AI/CombatAI/mobTargetSelection.js"></script>
+        <script src="client/js/Client/combatSettings.js"></script>
+        <script src="client/js/Client/Abilities/Player/MeleeAttacks.js"></script>
+        <script src="client/js/Client/Abilities/Player/DefensiveAbilities.js"></script>
+        <script src="client/js/Client/dataAccess.js"></script>
+        <script src="client/js/Client/dataLoader.js"></script>
+        <script src="client/js/Client/assetLoader.js"></script>
+        <script src="client/js/Client/objectGenerator.js"></script>
 
         <style>
              #ChatContainer {
-                //width:500px;
-               // height:330px;
                 display: inline;
                 margin: 0 1em 0 1em;
                 z-index: 99;

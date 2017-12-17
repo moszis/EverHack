@@ -1,4 +1,4 @@
-var socketAddress = '73.4.67.71';
+var socketAddress = 'localhost';
 var socketPort    = '8124';
 
 var socket = io.connect(socketAddress+':'+socketPort);
